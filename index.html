@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Bingo generator</title>
+		<link rel="stylesheet" href="style.css" />
+		<script src="./js/script.js" defer type="module"></script>
+	</head>
+	<body>
+		<div id="main">
+			<div id="setup">
+				<h1>
+					<span id="preview">Bingo <span id="cellPreview">Generator</span></span>
+				</h1>
+				<div id="content">
+					<label for="board-size-select">Select board size</label>
+
+					<select id="board-size-select">
+						<option value="3" selected="selected">3x3</option>
+						<option value="5">5x5</option>
+						<option value="6">6x6</option>
+						<option value="7">7x7</option>
+						<option value="8">8x8</option>
+						<option value="9">9x9</option>
+						<option value="10">10x10</option>
+					</select>
+
+					<label for="board-bg-color">Select board background color</label>
+					<input id="board-bg-color" class="boardOption" type="color" value="#FFFFFF" />
+
+					<label for="board-cell-font-color">Select font color</label>
+					<input id="board-cell-font-color" class="boardOption" type="color" value="#FFFFFF" />
+
+					<label for="board-cell-bg-color">Select cell color</label>
+					<input type="color" id="board-cell-bg-color" class="boardOption" value="#FFFFFF" />
+
+					<button id="setup-btn">OK</button>
+				</div>
+			</div>
+		</div>
+	</body>
+</html>

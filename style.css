@@ -1,0 +1,71 @@
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Open Sans', sans-serif;
+}
+
+#main {
+    display: flex;
+    justify-content: center;
+    align-content: center;
+}
+
+#setup {
+    min-width: 33vw;
+    height: 45vh;
+    background-color: #F2EBE9;
+    display: flex;
+    flex-direction: column;
+    margin-top: 10%;
+    padding: 2%;
+    text-align: center;
+    border-radius: 2em;
+    color: #393E46;
+    box-shadow: -0.4rem -0.4rem inset hsl(220, 7%, 9%);
+}
+
+
+#content {
+    margin-top: 3%;
+    display: grid;
+    grid-template-columns: 50% 50%;
+    grid-template-rows: 20% 20% 20% 20% 20%;
+    row-gap: 10%;
+    align-items: center;
+    justify-items: start;
+    padding: 1%;
+}
+
+#content > input, select {
+    width: 50%;
+    justify-self: center;
+    text-align: center;
+}
+
+#content > select {
+    border-radius: 2em;
+    font-size: large;
+}
+
+#content > label {
+    font-size: 2.5vh;
+}
+
+h1 {
+    font-size: 10vh;    
+}
+
+
+#setup-btn {
+    grid-column-start: 1;
+    grid-column-end: span 2;
+    place-self: center;
+    width: 33%;
+}
+
+/* cool colors 
+37 40 45
+87 177 183 */
