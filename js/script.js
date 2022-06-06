@@ -8,7 +8,7 @@ const handleConfirmation = () => {
     const boardBgColor = document.getElementById("board-bg-color").value
     const boardCellFontColor = document.getElementById("board-cell-font-color").value
     const boardCellBgColor = document.getElementById("board-cell-bg-color").value
-    document.getElementById("setup").style.display = "none"
+    document.getElementById("container").style.display = "none"
 }
 
 const handleSetupClick = event => {

@@ -7,65 +7,120 @@
     font-family: 'Open Sans', sans-serif;
 }
 
+:root {
+    --font-clr: #393E46;
+}
+
 #main {
     display: flex;
     justify-content: center;
-    align-content: center;
+    align-items: center;
+    height: 100vh;
+    width: 100vw;
 }
 
-#setup {
-    min-width: 33vw;
-    height: 45vh;
+#container {
+    min-width: 10rem;
     background-color: #F2EBE9;
-    display: flex;
-    flex-direction: column;
-    margin-top: 10%;
-    padding: 2%;
-    text-align: center;
-    border-radius: 2em;
-    color: #393E46;
-    box-shadow: -0.4rem -0.4rem inset hsl(220, 7%, 9%);
+    text-align: center;  
+    color: var(--font-clr);
+    border-radius: 2rem;
+    box-shadow: -0.4rem -0.4rem inset hsl(220, 7%, 9%); 
 }
 
+#container > h1 {
+    font-size: 4rem;
+    padding: 0.5rem;
+}
 
 #content {
-    margin-top: 3%;
     display: grid;
-    grid-template-columns: 50% 50%;
-    grid-template-rows: 20% 20% 20% 20% 20%;
-    row-gap: 10%;
-    align-items: center;
-    justify-items: start;
-    padding: 1%;
+    grid-template-columns: repeat(2,1fr);
+    grid-template-rows: repeat(5, 1fr);
+    padding: 48px;
+    font-size: 1.5rem;
+    font-weight: 600;
+    gap: 10px;
+    
 }
 
-#content > input, select {
-    width: 50%;
+#content > label {
+    justify-self: start;
+}
+
+#content > select, input {
     justify-self: center;
+    margin-left: 4rem;
+    width: 3rem;
+    height: 3rem;
     text-align: center;
 }
 
 #content > select {
-    border-radius: 2em;
-    font-size: large;
+    font-weight: 600;
+    font-size: 0.875rem;
 }
-
-#content > label {
-    font-size: 2.5vh;
-}
-
-h1 {
-    font-size: 10vh;    
-}
-
 
 #setup-btn {
     grid-column-start: 1;
     grid-column-end: span 2;
     place-self: center;
-    width: 33%;
+    width: 6rem;
+    height: 3rem;
+    font-size: 2rem;
+    border-radius: 2rem;
+    box-shadow: -0.1rem -0.1rem inset hsl(220, 7%, 9%);
+    background-color: hsla(70, 38%, 49%, 0.9);
+    border: 1px var(--font-clr) solid; 
 }
 
-/* cool colors 
-37 40 45
-87 177 183 */
+#setup-btn:hover {
+    background-color: hsla(70, 38%, 49%, 0.8);
+}
+
+@media only screen and (max-width: 600px) {
+    #container {
+        width: 100vh;
+        height: 100vh;
+        box-shadow: none;
+        border-radius: 0;
+    }
+
+    #container > h1 {
+        margin-top: 2rem;
+        font-size: 3rem;
+    }
+
+    #content {
+        margin-top: 3rem;
+        padding: 0.5rem;
+        padding: 10px;
+    }
+
+    #content > select, input {
+        justify-self: center;
+        margin-left: 4rem;
+        width: 2rem;
+        height: 2rem;
+        text-align: center;
+    }
+
+ 
+}
+
+@media only screen and (max-height: 500px) {
+   #container {
+       width: 100vw;
+       box-shadow: none;
+       border-radius: 0;
+   }
+   
+   #container > h1 {
+    margin-top: 2rem;
+    font-size: 2.5rem;
+}
+
+    #content {
+        margin-top: -2rem;
+    }
+}
