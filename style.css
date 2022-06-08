@@ -9,12 +9,14 @@
 
 :root {
     --font-clr: #393E46;
+    --board-size: 0;
 }
 
 #main {
     display: flex;
     justify-content: center;
     align-items: center;
+    flex-direction: column;
     height: 100vh;
     width: 100vw;
 }
@@ -125,19 +127,38 @@
     }
 }
 
+#board-title {
+    display: none;
+    margin-bottom: -1.5rem;
+}
+
 #board {
     display: none;
     gap: 1em;
     margin: 4em;
+    grid-template-columns: repeat(var(--board-size),1fr);
+    grid-template-rows: repeat(var(--board-size),1fr);
 }
 
-#board input {
-    width: 10ch;
-    height: 10ch;
+#board p {
+    display: grid;
+    place-content: center;
+    width: 10em;
+    height: 100%;
+    text-align: center;
+    outline: none;
+    font-size: 0.825rem;
+    font-weight: 600;
+    background-color: transparent;
 }
 
 .cell {
-    padding: 2em;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 8em;
+    height: 8em;
+    padding: 1em;
     border-radius: 1.5em;
     background-color: blueviolet;
     box-shadow: 0 -0.4em inset hsl(220, 7%, 9%); 
