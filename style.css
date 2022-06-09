@@ -165,6 +165,7 @@
     border-radius: 1.5em;
     box-shadow: 0 -0.4em inset hsl(220, 7%, 9%); 
     overflow-wrap: break-word;
+    position: relative;
 }
 
 
@@ -172,4 +173,24 @@
 
 #saveBtn {
     display: none;
+}
+
+.marked.cell::after,.marked.cell::before {
+    position: absolute;
+    content: '';
+    height: 100%;
+    width: 0.75em;
+    top: 50%;
+    left: 50%;
+    background-color: blueviolet;
+    border-radius: 0.5em;
+    
+}
+
+.marked.cell::after {
+    transform: translate(-50%,-50%) rotate(45deg);
+}
+
+.marked.cell::before {
+    transform: translate(-50%,-50%) rotate(-45deg);
 }
