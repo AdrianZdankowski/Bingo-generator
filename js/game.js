@@ -1,6 +1,9 @@
 export const markCell = (cell, boardCells) => {
+	const overlayElem = document.querySelector(".overlay");
 	cell.classList.add("marked");
-	console.log(checkWin(boardCells));
+	if (checkWin(boardCells)) {
+		overlayElem.style.setProperty("visibility", "visible");
+	}
 };
 
 const checkWin = boardCells => {

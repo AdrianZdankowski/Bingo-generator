@@ -21,25 +21,29 @@ const setupBoard = () => {
 	board.style.setProperty("display", "grid");
 	boardTitle.style.setProperty("display", "block");
 	root.style.setProperty("--board-size", boardSize);
+	root.style.setProperty("--cell-font-clr", boardCellFontColor);
+	root.style.setProperty("--cell-bg-clr", boardCellBgColor);
+
 	saveBtn.style.setProperty("display", "block");
 
 	for (let i = 0; i < boardSize; i++) {
 		const row = [];
+
 		for (let j = 0; j < boardSize; j++) {
 			const cell = document.createElement("div");
 			const inputField = document.createElement("p");
+			const hover = document.createElement("div");
 			cell.id = `${i}${j}`;
 			cell.classList.add("cell");
 			inputField.textContent = "WRITE_HERE";
-			inputField.classList.add("cellInput");
 			inputField.setAttribute("contenteditable", "true");
-			inputField.style.setProperty("color", boardCellFontColor);
-			cell.style.setProperty("background-color", boardCellBgColor);
 			cell.append(inputField);
+			cell.append(hover);
 			board.append(cell);
 			row.push(cell);
 			inputsArray.push(inputField);
 		}
+
 		boardCells.push(row);
 	}
 
@@ -58,6 +62,15 @@ const setupBoard = () => {
 			}
 		});
 	});
+
+	boardCells.forEach(row =>
+		row.forEach(cell => {
+			cell.addEventListener("contextmenu", e => {
+				e.preventDefault();
+				e.target.classList.remove("marked");
+			});
+		})
+	);
 };
 
 const startGame = () => {

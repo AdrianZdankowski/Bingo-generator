@@ -10,6 +10,8 @@
 :root {
     --font-clr: #393E46;
     --board-size: 0;
+    --cell-font-clr: black;
+    --cell-bg-clr: #798680;
 }
 
 #main {
@@ -166,9 +168,13 @@
     box-shadow: 0 -0.4em inset hsl(220, 7%, 9%); 
     overflow-wrap: break-word;
     position: relative;
+    color: var(--cell-font-clr);
+    background-color: var(--cell-bg-clr);
 }
 
-
+.cell:hover {
+    filter: brightness(110%);
+}
 /* hover na celle */
 
 #saveBtn {
@@ -182,7 +188,7 @@
     width: 0.75em;
     top: 50%;
     left: 50%;
-    background-color: blueviolet;
+    background-color: var(--font-clr);
     border-radius: 0.5em;
     
 }
@@ -193,4 +199,21 @@
 
 .marked.cell::before {
     transform: translate(-50%,-50%) rotate(-45deg);
+}
+
+.overlay {
+    position: absolute;
+    inset: 0;
+    background-color: rgba(29, 41, 49, 0.5);
+    backdrop-filter: blur(0.125rem);
+    display: flex;
+    align-items: center;
+    visibility: hidden;
+}
+
+.overlay-block {
+    background-color: hsl(204, 26%, 10%);
+    width: 100%;
+    padding-block: 4rem;
+    text-align: center;
 }
