@@ -129,6 +129,7 @@
 
 #board-title {
     display: none;
+    font-size: 3rem;
     margin-bottom: -1.5rem;
 }
 
@@ -138,18 +139,20 @@
     margin: 4em;
     grid-template-columns: repeat(var(--board-size),1fr);
     grid-template-rows: repeat(var(--board-size),1fr);
+   
 }
 
 #board p {
     display: grid;
-    place-content: center;
+    place-items: center;
     width: 10em;
-    height: 100%;
     text-align: center;
     outline: none;
-    font-size: 0.825rem;
+    font-size: 1rem;
     font-weight: 600;
     background-color: transparent;
+    word-break: break-all;
+    overflow-y: hidden;
 }
 
 .cell {
@@ -160,6 +163,13 @@
     height: 8em;
     padding: 1em;
     border-radius: 1.5em;
-    background-color: blueviolet;
     box-shadow: 0 -0.4em inset hsl(220, 7%, 9%); 
+    overflow-wrap: break-word;
+}
+
+
+/* hover na celle */
+
+#saveBtn {
+    display: none;
 }
