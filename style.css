@@ -12,6 +12,7 @@
     --board-size: 0;
     --cell-font-clr: black;
     --cell-bg-clr: #798680;
+    --mark-clr: hsl(39, 100%, 45%);
 }
 
 #main {
@@ -24,7 +25,8 @@
 }
 
 #container {
-    min-width: 10rem;
+    min-width: 12rem;
+    min-height: 15rem;
     background-color: #F2EBE9;
     text-align: center;  
     color: var(--font-clr);
@@ -38,14 +40,13 @@
 }
 
 #content {
-    display: grid;
+    display: none;
     grid-template-columns: repeat(2,1fr);
     grid-template-rows: repeat(5, 1fr);
-    padding: 48px;
+    padding: 1rem 3rem 3rem 3rem;
     font-size: 1.5rem;
     font-weight: 600;
-    gap: 10px;
-    
+    gap: 1rem;
 }
 
 #content label {
@@ -65,17 +66,21 @@
     font-size: 0.875rem;
 }
 
+#content #board-title-input {
+    width: 50%;
+    height: 60%;
+    font-weight: 600;
+}
+
 #setup-btn {
-    grid-column-start: 1;
-    grid-column-end: span 2;
-    place-self: center;
     width: 6rem;
     height: 3rem;
     font-size: 2rem;
     border-radius: 2rem;
     box-shadow: -0.1rem -0.1rem inset hsl(220, 7%, 9%);
     background-color: hsla(70, 38%, 49%, 0.9);
-    border: 1px var(--font-clr) solid; 
+    border: 1px var(--font-clr) solid;
+    margin-bottom: 1em; 
 }
 
 #setup-btn:hover {
@@ -133,6 +138,8 @@
     display: none;
     font-size: 3rem;
     margin-bottom: -1.5rem;
+    text-transform: capitalize;
+    color: var(--cell-font-clr);
 }
 
 #board {
@@ -153,8 +160,7 @@
     font-size: 1rem;
     font-weight: 600;
     background-color: transparent;
-    word-break: break-all;
-    overflow-y: hidden;
+    word-break: break-word;
 }
 
 .cell {
@@ -167,6 +173,7 @@
     border-radius: 1.5em;
     box-shadow: 0 -0.4em inset hsl(220, 7%, 9%); 
     overflow-wrap: break-word;
+    overflow-y: hidden;
     position: relative;
     color: var(--cell-font-clr);
     background-color: var(--cell-bg-clr);
@@ -175,7 +182,6 @@
 .cell:hover {
     filter: brightness(110%);
 }
-/* hover na celle */
 
 #saveBtn {
     display: none;
@@ -188,9 +194,8 @@
     width: 0.75em;
     top: 50%;
     left: 50%;
-    background-color: var(--font-clr);
+    background-color: var(--mark-clr);
     border-radius: 0.5em;
-    
 }
 
 .marked.cell::after {
@@ -217,3 +222,70 @@
     padding-block: 4rem;
     text-align: center;
 }
+
+.message {
+    color: var(--cell-font-clr);
+    font-size: 4rem;
+}
+
+.switch {
+    position: relative;
+    display: inline-block;
+    width: 3.75rem;
+    height: 2.125rem;
+}
+
+.switch input {
+    opacity: 0;
+    width: 0;
+    height: 0;
+}
+  
+.slider {
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: #ccc;
+    transition: .4s;
+}
+
+.slider:before {
+    position: absolute;
+    content: "";
+    height: 1.625rem;
+    width: 1.625rem;
+    left: 0.25rem;
+    bottom: 0.25rem;
+    background-color: white;
+    transition: .4s;
+}
+
+input:checked +.slider {
+    background-color: hsla(70, 38%, 49%, 0.9);
+  }
+  
+input:focus + .slider {
+    box-shadow: 0 0 1px hsla(70, 38%, 49%, 0.9);
+}
+
+input:checked + .slider:before {
+    transform: translateX(1.625rem);
+}
+
+.customSwitchContainer {
+    display: grid;
+    grid-template: 1fr 1fr / 1fr 1fr;
+    place-items: center;
+    font-size: 1.5rem;
+    font-weight: 600;
+    gap: 10px;
+}
+
+.customSwitchContainer > p {
+    justify-self: start;
+    padding-left: 3rem;
+}
+

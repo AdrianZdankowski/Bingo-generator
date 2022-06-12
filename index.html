@@ -14,6 +14,18 @@
 				<h1>
 					<span id="preview">BINGO <span id="cellPreview">GENERATOR</span></span>
 				</h1>
+
+				<div class="customSwitchContainer">
+					<p>Custom board</p>
+					<label class="switch">
+						<input type="checkbox" id="customModeSwitch" />
+						<span class="slider"></span>
+					</label>
+
+					<p>Select board title</p>
+					<input type="text" id="board-title-input" placeholder="Name your board" />
+				</div>
+
 				<div id="content">
 					<label for="board-size-select">Select board size</label>
 
@@ -22,26 +34,27 @@
 						<option value="5">5x5</option>
 					</select>
 
-					<!-- Add switch to customize mode (later) -->
-
 					<label for="board-bg-color">Select board background color</label>
 					<input id="board-bg-color" class="boardOption" type="color" value="#FFFFFF" />
 
 					<label for="board-cell-font-color">Select font color</label>
 					<input id="board-cell-font-color" class="boardOption" type="color" />
 
+					<label for="mark-color">Select mark color</label>
+					<input id="mark-color" class="boardOption" type="color" />
+
 					<label for="board-cell-bg-color">Select cell color</label>
 					<input type="color" id="board-cell-bg-color" class="boardOption" value="#798680" />
-
-					<button id="setup-btn">OK</button>
 				</div>
+				<button id="setup-btn">OK</button>
 			</div>
+
 			<h1 id="board-title">TITLE</h1>
 			<div id="board"></div>
 			<button id="saveBtn">SAVE</button>
 		</div>
 		<div class="overlay">
-			<div class="overlay-block"><h2 class="message">You win</h2></div>
+			<div class="overlay-block"><h2 class="message">You won!</h2></div>
 		</div>
 	</body>
 </html>

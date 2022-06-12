@@ -8,21 +8,35 @@ const root = document.querySelector(":root");
 const boardTitle = document.getElementById("board-title");
 const saveBtn = document.getElementById("saveBtn");
 const board = document.getElementById("board");
+const customizationSwitch = document.getElementById("customModeSwitch");
+const content = document.getElementById("content");
 
 const boardCells = [];
 const inputsArray = [];
 
 const setupBoard = () => {
-	const boardSize = parseInt(document.getElementById("board-size-select").value);
-	const boardCellFontColor = document.getElementById("board-cell-font-color").value;
-	const boardCellBgColor = document.getElementById("board-cell-bg-color").value;
+	let boardSize = parseInt(document.getElementById("board-size-select").value);
+	let boardCellFontColor = document.getElementById("board-cell-font-color").value;
+	let boardCellBgColor = document.getElementById("board-cell-bg-color").value;
+	let markColor = document.getElementById("mark-color").value;
+	const title = document.getElementById("board-title-input").value;
+	boardTitle.textContent = title;
+
+	if (window.getComputedStyle(content).getPropertyValue("display") == "none") {
+		boardSize = 5;
+		boardCellFontColor = "rgb(87, 177, 183)";
+		boardCellBgColor = "hsl(218, 10%, 25%)";
+		markColor = "hsl(39, 100%, 45%)";
+	}
 
 	document.getElementById("container").remove();
 	board.style.setProperty("display", "grid");
 	boardTitle.style.setProperty("display", "block");
+
 	root.style.setProperty("--board-size", boardSize);
 	root.style.setProperty("--cell-font-clr", boardCellFontColor);
 	root.style.setProperty("--cell-bg-clr", boardCellBgColor);
+	root.style.setProperty("--mark-clr", markColor);
 
 	saveBtn.style.setProperty("display", "block");
 
@@ -96,6 +110,15 @@ const handleSetupClick = event => {
 		cellPreview.style.backgroundColor = document.getElementById("board-cell-bg-color").value;
 };
 
+const handleSwitchClick = () => {
+	const compStyle = window.getComputedStyle(content);
+	if (compStyle.getPropertyValue("display") == "none") {
+		saveBtn.style.setProperty("margin-top", "-1em");
+		content.style.display = "grid";
+	} else content.style.display = "none";
+};
+
 setupBtn.addEventListener("click", setupBoard);
 boardOptions.forEach(option => option.addEventListener("input", handleSetupClick));
 saveBtn.addEventListener("click", startGame, { once: true });
+customizationSwitch.addEventListener("input", handleSwitchClick);
